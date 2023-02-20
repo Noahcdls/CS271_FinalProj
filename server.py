@@ -19,8 +19,14 @@ def connect_Thread(addr, port_no):
 
 print("Starting server connections!\n")
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-port1 = int(input())#get input for my scoket
-port2 = int(input())#get input for other socket
+port1 = 0
+port2 = 0
+if len(sys.argv) > 2:
+    port1 = int(sys.argv[1])
+    port2 = int(sys.argv[2])
+    print(port1, port2)
+else:
+    exit()
 server_address = ('0.0.0.0', port1)
 sock.bind(server_address)
 sock.listen(1)
